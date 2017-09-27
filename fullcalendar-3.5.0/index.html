@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel='stylesheet' href='fullcalendar.css' />
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src='lib/moment.min.js'></script>
+  <script src='fullcalendar.js'></script>
+  
+  <script>
+  // page is now ready, initialize the calendar...
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+      header: {
+        left:   'title',
+        center: 'agendaWeek month',
+        right:  'today prev,next'
+      },
+      dayClick: function(date, jsEvent, view) {
+        
+        // console.log(date);
+        date = date.format(); // get date
+        
+        
+
+        
+        
+        
+        s_time = "T06:15:00.000"
+        e_time = "T08:15:00.000"
+        var e = {
+          // events: function(start, end, callback) {
+          //   
+          //     // ...
+          // },
+          title: 'Event1',
+          start: date + s_time,
+          end: date + e_time,
+          color: '#99c2ff',
+          textColor: 'black',
+        }
+        $('#calendar').fullCalendar('renderEvent', e, true)
+        // $('#calendar').fullCalendar('next')
+        
+      } // end day click
+    }); // end full calendar
+  }) // end doc ready
+  </script>
+</head>
+
+<body>
+  <p style="text-align:center">Switch views:</p>
+  <div id='calendar'></div>
+  <p>Enter names in the fields, then click "Submit" to submit the form:</p>
+
+  <form id="frm1" action="action_page.php">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br><br>
+    <input type="button" onclick="myFunction()" value="Submit">
+  </form>
+  <script>
+    function myFunction() {
+      var a = document.getElementById("frm1").submit()
+      console.log(a);
+      // document.getElementById("frm1").submit();
+    }
+  </script>
+
+</body>
+</html>
